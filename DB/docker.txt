@@ -1,0 +1,1 @@
+docker run --name mariadb -v /var/docker/DATABASE:/var/lib/mysql:Z -p 3306:3306 -e MARIADB_ROOT_PASSWORD=SuperZiherPass202X! -e TZ=Europe/Ljubljana -d mariadb:latest
