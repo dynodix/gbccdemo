@@ -28,3 +28,4 @@ http://gbcc.dix.si:9080/api-docs/
   "DB" contains a mysql docker commands, and demo data SQL for demo purposes
   "server" contains the actual challenge server code
 
+
