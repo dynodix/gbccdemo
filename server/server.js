@@ -79,8 +79,14 @@ app.get("/api/games/", function(req , res){
                 executeQuery (res, query);
 });
 
+app.get("/api/gamespaginated/:page/:pagesize", function(req , res){
+	/*  #swagger.description = 'List all games. Ordered by pages of size pagesize' */
+	            var query = 'select * from games order by title LIMIT ' + req.params.pagesize +' OFFSET '+ (req.params.page-1)*req.params.pagesize ;
+                executeQuery (res, query);
+});
+
 app.get("/api/game/:gamename", function(req , res){
-	/*  #swagger.description = 'Search a game by name.' */
+	/*  #swagger.description = 'Search a game by name. The name can be a pattern' */
 	            var query = 'select * from games where title like "%'+ req.params.gamename + '%"';
                 executeQuery (res, query);
 });
@@ -113,15 +119,27 @@ app.get("/api/players/", function(req , res){
                 executeQuery (res, query);
 });
 
+app.get("/api/playerspaginated/:page/:pagesize", function(req , res){
+	/*  #swagger.description = 'List all players. Ordered by pages of size pagesize' */
+	            var query = 'select * from players order by firstname, lastname LIMIT ' + req.params.pagesize +' OFFSET '+ (req.params.page-1)*req.params.pagesize ;
+                executeQuery (res, query);
+});
+
 app.get("/api/player/:searchname", function(req , res){
-	/*  #swagger.description = '' */
+	/*  #swagger.description = 'Search for a player. The searchname will search for pattern in First name and Last name' */
 	            var query = 'select * from players where firstname like "%'+ req.params.searchname + '%" or lastname like "%' + req.params.searchname + '%"';
+                executeQuery (res, query);
+});
+
+app.get("/api/playedgamesaginated/:playerid/:page/:pagesize", function(req , res){
+	/*  #swagger.description = 'List all games played by player. (defined by ID) Ordered by pages of size pagesize' */
+	            var query = 'select * from viewplayingames WHERE playeruuid = "' + req.params.playerid + '" LIMIT ' + req.params.pagesize +' OFFSET '+ (req.params.page-1)*req.params.pagesize ;
                 executeQuery (res, query);
 });
 
 //POST API
 app.post("/api/player", function(req , res){
-	/*  #swagger.description = '' */	
+	/*  #swagger.description = 'Insert a new player' */	
                 var query = "INSERT INTO players (firstname,lastname,borndate,documentnr,gdpraccept) VALUES (" + 
 				req.body.firstname +","+req.body.lastname+","+req.body.borndate+","+req.body.documentnr+","+req.body.gdpraccept+")";
                 executeQuery (res, query);
@@ -129,22 +147,30 @@ app.post("/api/player", function(req , res){
 
 //PUT API
  app.put("/api/player/:id", function(req , res){
-	/*  #swagger.description = '' */	 
+	/*  #swagger.description = 'Update a players name or last name' */	 
                 var query = "UPDATE players SET firstname= " + req.body.firstname  +  " , lastname=  " + req.body.lastname + "  WHERE playeruuid= " + req.params.id;
                 executeQuery (res, query);
 });
 
 // DELETE API
  app.delete("/api/player/:id", function(req , res){
-	/*  #swagger.description = '' */	 
+	/*  #swagger.description = 'delete a player' */	 
                 var query = "DELETE FROM players WHERE playeruuid=" + req.params.id;
                 executeQuery (res, query);
 });
 
 // GAMES IN PLAY ------------------------------------------------------------------------------------------------------------------------
+// To be noted that the game is registered only once per player, this is not playing history, for history primary key has to be changed
 app.get("/api/playedgames/", function(req , res){
 	/*  #swagger.description = 'List all games played' */	
 	            var query = 'select * from viewplayingames';
+                executeQuery (res, query);
+});
+
+// To be noted that the game is registered only once per player, this is not playing history, for history primary key has to be changed
+app.post("/api/playagame", function(req , res){
+	/*  #swagger.description = 'Record that a player had played a game' */	
+	            var query = 'replace into playingames (playeruuid, gameuuid, lastplay) VALUES ("' + req.body.playerid + '","' + req.body.gameid + '",CURDATE() )';
                 executeQuery (res, query);
 });
 

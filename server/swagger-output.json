@@ -5,7 +5,7 @@
     "description": "Auto generated documentation for GBCC App",
     "version": "1.0.0"
   },
-  "host": "192.168.0.9:9080",
+  "host": "gbcc.dix.si:9080",
   "basePath": "/",
   "schemes": [
     "http"
@@ -21,9 +21,33 @@
         }
       }
     },
+    "/api/gamespaginated/{page}/{pagesize}": {
+      "get": {
+        "description": "List all games. Ordered by pages of size pagesize",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pagesize",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/game/{gamename}": {
       "get": {
-        "description": "Search a game by name.",
+        "description": "Search a game by name. The name can be a pattern",
         "parameters": [
           {
             "name": "gamename",
@@ -125,9 +149,33 @@
         }
       }
     },
+    "/api/playerspaginated/{page}/{pagesize}": {
+      "get": {
+        "description": "List all players. Ordered by pages of size pagesize",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pagesize",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/player/{searchname}": {
       "get": {
-        "description": "",
+        "description": "Search for a player the searchname will serach for pattern in First name and Last name",
         "parameters": [
           {
             "name": "searchname",
@@ -143,9 +191,39 @@
         }
       }
     },
+    "/api/playedgamesaginated/{playerid}/{page}/{pagesize}": {
+      "get": {
+        "description": "List all games played by player. (defined by ID) Ordered by pages of size pagesize",
+        "parameters": [
+          {
+            "name": "playerid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pagesize",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/player": {
       "post": {
-        "description": "",
+        "description": "Insert a new player",
         "parameters": [
           {
             "name": "body",
@@ -181,7 +259,7 @@
     },
     "/api/player/{id}": {
       "put": {
-        "description": "",
+        "description": "Update a players name or last name",
         "parameters": [
           {
             "name": "id",
@@ -212,7 +290,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "delete a player",
         "parameters": [
           {
             "name": "id",
@@ -231,6 +309,33 @@
     "/api/playedgames/": {
       "get": {
         "description": "List all games played",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/playagame": {
+      "post": {
+        "description": "Record that a player had played a game",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "playerid": {
+                  "example": "any"
+                },
+                "gameid": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""

@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `lastname` varchar(80) DEFAULT NULL,
   `borndate` date DEFAULT NULL,
   `documentnr` varchar(50) DEFAULT NULL,
-  `gdpraccept` bit(1) DEFAULT NULL,
+  `gdpraccept` set('Yes','No') DEFAULT 'Yes',
   PRIMARY KEY (`playeruuid`),
   KEY `Indeks 2` (`firstname`),
   KEY `Indeks 3` (`lastname`)
@@ -58,6 +58,20 @@ CREATE TABLE IF NOT EXISTS `playingames` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_slovenian_ci;
 
 -- Data exporting was unselected.
+
+-- Dumping structure for view gbcc.viewplayingames
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `viewplayingames` (
+	`firstname` VARCHAR(80) NULL COLLATE 'utf8mb3_slovenian_ci',
+	`lastname` VARCHAR(80) NULL COLLATE 'utf8mb3_slovenian_ci',
+	`title` VARCHAR(50) NULL COLLATE 'utf8mb3_slovenian_ci',
+	`playdate` DATE NULL,
+	`playeruuid` UUID NOT NULL
+) ENGINE=MyISAM;
+
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `viewplayingames`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `viewplayingames` AS select `players`.`firstname` AS `firstname`,`players`.`lastname` AS `lastname`,`games`.`title` AS `title`,`playingames`.`lastplay` AS `playdate`,`players`.`playeruuid` AS `playeruuid` from ((`playingames` join `players`) join `games`) where `playingames`.`playeruuid` = `players`.`playeruuid` and `playingames`.`gameuuid` = `games`.`gameuuid`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
