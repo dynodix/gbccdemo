@@ -1,8 +1,3 @@
-# gbccdemo
-This is a demo repository for:
-
-Gamanza Backend Coding Challenge
-=======
 This is a demo repository for:
 
 # Gamanza Backend Coding Challenge
