@@ -1,0 +1,1 @@
+ docker run -d --name domoticz.proxy --network=web -p 8082:8082 -l traefik.enable=true -l traefik.frontend.rule=Host:domoticz.helium-iot.si -l traefik.port=8082 -l traefik.docker.network=web hpello/tcp-proxy 192.168.0.20 8082
