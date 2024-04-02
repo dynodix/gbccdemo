@@ -5,7 +5,7 @@ const doc = {
     title: 'GBCC Example Swagger autogen',
     description: 'Auto generated documentation for GBCC App'
   },
-  host: '192.168.0.9:9080'
+  host: 'gbcc.dix.si:9080'
 };
 
 const outputFile = './swagger-output.json';

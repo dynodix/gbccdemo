@@ -14,3 +14,12 @@ Structure of this site
 "DB" contains a mysql docker commands, and demo data SQL for demo purposes
 
 "server" contains the actual challenge server code
+
+TEST 
+
+Access to API:
+https://gbcc.dix.si/api/
+
+Access to swagger:
+http://gbcc.dix.si:9080/api-docs/
+
