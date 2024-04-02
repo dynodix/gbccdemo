@@ -1,4 +1,3 @@
-# gbccdemo
 This is a demo repository for:
 
 # Gamanza Backend Coding Challenge
@@ -10,7 +9,5 @@ If you are not an evaluator please do not use or share this data.
 Thanks, Dino
 
 Structure of this site
-
-"DB" contains a mysql docker commands, and demo data SQL for demo purposes
-
-"server" contains the actual challenge server code
+  "DB" contains a mysql docker commands, and demo data SQL for demo purposes
+  "server" contains the actual challenge server code
