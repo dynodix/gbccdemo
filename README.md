@@ -1,7 +1,7 @@
-# gbccdemo# gbccdemo
+# gbccdemo
 This is a demo repository for:
 
-Gamanza Backend Coding Challenge
+# Gamanza Backend Coding Challenge
 
 it is for demo purposes only , it should be made private after demo revision.
 
