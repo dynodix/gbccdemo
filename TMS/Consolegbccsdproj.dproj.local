@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.639,C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Console_XData_Server.dproj=C:\MyAthens\MyProjects\Gamanza Challenge\GBCC\TMS\Consolegbccsdproj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.382,=C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.719,=C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.906,C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\ConnectionModule.pas=C:\MyAthens\MyProjects\Gamanza Challenge\GBCC\TMS\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.906,C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\ConnectionModule.dfm=C:\MyAthens\MyProjects\Gamanza Challenge\GBCC\TMS\ConnectionModule.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.912,=C:\MyAthens\MyProjects\Gamanza Challenge\GBCC\TMS\gbccentities.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.811,=C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Server.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.516,=C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Server.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.814,C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Server.pas=C:\MyAthens\MyProjects\Gamanza Challenge\GBCC\TMS\Server.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.358,C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Console_XData_Server.dproj=C:\Users\Dino.REDOX\Documents\Embarcadero\Studio\Projects\Console_XData_Server.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
